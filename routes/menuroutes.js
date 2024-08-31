@@ -30,6 +30,6 @@ router.get('/', async(req,res)=>{
         
     }
 })
-
+//export router  
 module.exports = router
 
