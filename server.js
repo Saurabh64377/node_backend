@@ -7,10 +7,10 @@ const db = require('./db')
 const app = express();
 
 //custom middleware function
-const logDetails = (req,res,next)=>{
-    console.log(`[${new Date().toLocaleDateString()} request has come from this base url ${req.originalUrl}]`)
-    next()   //move on the next phase
-}
+// const logDetails = (req,res,next)=>{
+//     console.log(`[${new Date().toLocaleDateString()} request has come from this base url ${req.originalUrl}]`)
+//     next()   
+// }
 
 //passprt middleware
 app.use(passport.initialize())
@@ -22,14 +22,14 @@ app.use(express.json());
 
 
 //call custom middleare function for all routes
-app.use(logDetails)
+// app.use(logDetails)
 
 const PORT = process.env.PORT || 3001;
 
 
 //using passport authentication 
 const passprtAuth = passport.authenticate('local' , {session:false});
-app.get('/', passprtAuth, (req, res) => {
+app.get('/',  (req, res) => {
     res.send('Welcome to my hotel ...how can i help you ?')
 })
 
